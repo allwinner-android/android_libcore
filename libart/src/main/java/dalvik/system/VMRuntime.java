@@ -808,6 +808,17 @@ public final class VMRuntime {
     public native void runHeapTasks();
 
     /**
+     * AW_code;add art-interface;jiangbin;210819
+     * @hide
+     */
+    @SystemApi(client = MODULE_LIBRARIES)
+    @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+    public native void setHeapLaunchMode(boolean islaunchmode);
+    /*end*/
+
+
+
+    /**
      * Let the heap know of the new process state. This can change allocation and garbage collection
      * behavior regarding trimming and compaction.
      *
@@ -828,6 +839,18 @@ public final class VMRuntime {
     @SystemApi(client = MODULE_LIBRARIES)
     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
     public native void notifyStartupCompleted();
+
+
+    /** @hide */
+    @SystemApi(client = MODULE_LIBRARIES)
+    @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+    public static native void setVerifierEnabled(boolean enabled);
+
+    /** @hide */
+    @SystemApi(client = MODULE_LIBRARIES)
+    @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+    public static native boolean getVerifierEnabled();
+
 
     /**
      * Fill in dex caches with classes, fields, and methods that are
